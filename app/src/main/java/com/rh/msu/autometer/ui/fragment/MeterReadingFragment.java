@@ -21,6 +21,7 @@ import java.text.NumberFormat;
 public class MeterReadingFragment extends Fragment {
 
     TextView mTxtDistance;
+    TextView mTxtFare;
 
     public MeterReadingFragment() {
         // Required empty public constructor
@@ -33,7 +34,7 @@ public class MeterReadingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_meter_reading, container, false);
         mTxtDistance = (TextView) view.findViewById(R.id.txt_distance);
-        mTxtDistance.setText("0");
+        mTxtFare = (TextView) view.findViewById(R.id.txt_fare);
         TripApplication.getInstance().getEventBus().register(this);
         return view;
     }
@@ -46,10 +47,57 @@ public class MeterReadingFragment extends Fragment {
 
     @Subscribe
     public void getMessage(Double distance) {
+
+        displayDistance(distance);
+
+        displayFare(distance);
+    }
+
+    /**
+     * Display distance
+     *
+     * @param distance distance in meter
+     */
+    private void displayDistance(Double distance) {
+
+        distance = distance / 1000;   //Convert into KM
+
         NumberFormat formatter = new DecimalFormat("#0.0");
         if (distance > 0) {
             mTxtDistance.setText("" + formatter.format(distance));
         }
+    }
+
+
+    /**
+     * Dis[lay fare
+     *
+     * @param distance distance in meter
+     */
+    private void displayFare(double distance) {
+
+        double fare = calculateFare(distance);
+
+        NumberFormat formatter = new DecimalFormat("#0.0");
+        mTxtFare.setText("" + formatter.format(fare));
+
+    }
+
+    private double calculateFare(double distance) {
+        double fare = 12;
+
+        double baseDistance = 1200;
+
+        double traveled = distance - baseDistance;
+
+
+        if (traveled < 0) {
+            fare = 12;
+        } else {
+            fare = fare + (traveled / 200) + 1.60;
+        }
+
+        return fare;
     }
 
 }
