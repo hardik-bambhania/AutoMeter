@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AutoMeter</string>
+    <string name="google_api_key">AIzaSyBHucdaFlZ7zteLZxu4ChvT8EklEPjmH4c</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
