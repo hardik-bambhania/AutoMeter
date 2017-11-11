@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/square_shape"
+    android:padding="4dp">
+
+    <TextView
+        android:id="@+id/txt_driver_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="Name : Rameshbhai Patel" />
+
+    <TextView
+        android:id="@+id/txt_driver_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_driver_name"
+        android:layout_marginLeft="16dp"
+        android:text="Number : 989812345" />
+
+    <TextView
+        android:id="@+id/txt_driver_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_below="@id/txt_driver_number"
+        android:text="Auto Number : GJ 06 KG1234" />
+</RelativeLayout>
