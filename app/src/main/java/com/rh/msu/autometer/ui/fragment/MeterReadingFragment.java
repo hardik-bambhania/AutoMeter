@@ -86,7 +86,7 @@ public class MeterReadingFragment extends Fragment {
     private double calculateFare(double distance) {
         double fare = 12;
 
-        double baseDistance = 1200;
+        double baseDistance = 1000;
 
         double traveled = distance - baseDistance;
 
@@ -94,7 +94,7 @@ public class MeterReadingFragment extends Fragment {
         if (traveled < 0) {
             fare = 12;
         } else {
-            fare = fare + (traveled / 200) + 1.60;
+            fare = fare + ((int) (traveled / 200)) * 1.60;
         }
 
         return fare;
