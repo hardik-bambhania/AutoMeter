@@ -51,8 +51,12 @@ public class AutoMapFragment extends Fragment {
     LatLng mStartLetLong;
     LatLng mCurrentLetLong;
 
+    Double mLastKnownDistance;
+
+
     LocationManager mLocationManager;
     boolean isTripStarted = false;
+
 
     public AutoMapFragment() {
 
@@ -172,6 +176,11 @@ public class AutoMapFragment extends Fragment {
 
         if (to != null && mStartLetLong != null) {
             Double distance = SphericalUtil.computeDistanceBetween(mStartLetLong, to);
+
+            /*if(distance < mLastKnownDistance) {
+
+
+            }*/
             TripApplication.getInstance().getEventBus().post(distance);
         }
     }
