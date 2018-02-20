@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.rh.msu.autometer.R;
+import com.rh.msu.autometer.bl.PreferenceManager;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +26,13 @@ public class DriverDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_driver_details, container, false);
+
+        PreferenceManager preferenceManager = PreferenceManager.getInstance(getActivity());
+
+        ((TextView) view.findViewById(R.id.txt_driver_name)).setText("Name : " + preferenceManager.getDriverName());
+        ((TextView) view.findViewById(R.id.txt_driver_number)).setText("Contact Number : " + preferenceManager.getDriverMobileNumber());
+        ((TextView) view.findViewById(R.id.txt_vehicle_number)).setText("Vehicle Number : " + preferenceManager.getVehicleNumber());
+
         return view;
     }
 

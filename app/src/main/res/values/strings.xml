@@ -10,4 +10,6 @@
     <string name="vehicle_number">Vehicle Number</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="licence_numner">Licence Numner</string>
+    <string name="done">done</string>
+    <string name="fill_all_details">Please fill all data</string>
 </resources>

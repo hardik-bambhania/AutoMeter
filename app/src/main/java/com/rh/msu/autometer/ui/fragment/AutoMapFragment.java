@@ -50,8 +50,10 @@ public class AutoMapFragment extends Fragment {
 
     LatLng mStartLetLong;
     LatLng mCurrentLetLong;
+    LatLng mLastKnownLetLong;
 
-    Double mLastKnownDistance;
+
+    Double mDistance = 0.0;
 
 
     LocationManager mLocationManager;
@@ -171,17 +173,14 @@ public class AutoMapFragment extends Fragment {
         checkPermission();
     }
 
-    private void calculateDistance(LatLng to) {
+    private void calculateDistance(LatLng currentLatLong) {
         //Calculating the distance in meters
 
-        if (to != null && mStartLetLong != null) {
-            Double distance = SphericalUtil.computeDistanceBetween(mStartLetLong, to);
-
-            /*if(distance < mLastKnownDistance) {
-
-
-            }*/
-            TripApplication.getInstance().getEventBus().post(distance);
+        if (currentLatLong != null && mStartLetLong != null) {
+            Double distance = SphericalUtil.computeDistanceBetween(mLastKnownLetLong, currentLatLong);
+            mDistance = mDistance + distance;
+            TripApplication.getInstance().getEventBus().post(mDistance);
+            mLastKnownLetLong = currentLatLong;
         }
     }
 
@@ -284,6 +283,7 @@ public class AutoMapFragment extends Fragment {
                 double latitude = location.getLatitude();
                 double longitude = location.getLongitude();
                 mStartLetLong = new LatLng(latitude, longitude);
+                mLastKnownLetLong = new LatLng(latitude, longitude);
                 return null;
             }
 

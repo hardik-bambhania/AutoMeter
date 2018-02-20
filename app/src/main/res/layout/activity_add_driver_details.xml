@@ -9,44 +9,66 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.rh.msu.autometer.ui.activity.AddDriverDetailsActivity">
 
-    <EditText
-        android:id="@+id/edtxt_owner_name"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="@string/owner_name" />
+        android:layout_above="@+id/btn_done">
 
-    <EditText
-        android:id="@+id/edtxt_driver_name"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edtxt_owner_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:hint="@string/owner_name" />
+
+            <EditText
+                android:id="@+id/edtxt_driver_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtxt_owner_name"
+                android:layout_margin="4dp"
+                android:hint="@string/diver_name" />
+
+            <EditText
+                android:id="@+id/edtxt_vehicle_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtxt_driver_name"
+                android:layout_margin="4dp"
+                android:textAllCaps="true"
+                android:hint="@string/vehicle_number" />
+
+            <EditText
+                android:id="@+id/edtxt_driver_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtxt_vehicle_number"
+                android:layout_margin="4dp"
+                android:inputType="phone"
+                android:hint="@string/mobile_number" />
+
+            <EditText
+                android:id="@+id/edtxt_licence_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtxt_driver_number"
+                android:layout_margin="4dp"
+                android:textAllCaps="true"
+                android:hint="@string/licence_numner" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_done"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edtxt_owner_name"
+        android:layout_alignParentBottom="true"
         android:layout_margin="8dp"
-        android:text="@string/diver_name" />
-
-    <EditText
-        android:id="@+id/edtxt_vehicle_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edtxt_driver_name"
-        android:layout_margin="8dp"
-        android:text="@string/vehicle_number" />
-
-    <EditText
-        android:id="@+id/edtxt_driver_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_below="@id/edtxt_vehicle_number"
-        android:text="@string/mobile_number" />
-
-    <EditText
-        android:id="@+id/edtxt_licence_number"
-        android:layout_width="match_parent"
-        android:layout_margin="8dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edtxt_driver_number"
-        android:text="@string/licence_numner" />
-
-
+        android:background="@color/colorPrimary"
+        android:text="@string/done"
+        android:textColor="@android:color/white" />
 </RelativeLayout>
