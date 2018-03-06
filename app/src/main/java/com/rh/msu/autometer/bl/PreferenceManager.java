@@ -17,6 +17,7 @@ public class PreferenceManager {
     private static final String KEY_VEHICLE_NUMBER = "key_vehicle_number";
     private static final String KEY_DRIVER_MOBILE_NUMBER = "key_driver_mobile_number";
     private static final String KEY_LICENCE_NUMBER = "key_licence_number";
+    private static final String KEY_UNIQUE_AUTO_NUMBER = "key_unique_number";
 
     private PreferenceManager(Context context) {
         mPreferences = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
@@ -70,6 +71,14 @@ public class PreferenceManager {
 
     public String getDriverMobileNumber() {
         return mPreferences.getString(KEY_DRIVER_MOBILE_NUMBER, "");
+    }
+
+    public void putUniqueAutoNumber(String number) {
+        mEditor.putString(KEY_UNIQUE_AUTO_NUMBER, number).commit();
+    }
+
+    public String getUniqueAutoNumber() {
+        return mPreferences.getString(KEY_UNIQUE_AUTO_NUMBER, "");
     }
 
 

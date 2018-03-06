@@ -12,4 +12,7 @@
     <string name="licence_numner">Licence Numner</string>
     <string name="done">done</string>
     <string name="fill_all_details">Please fill all data</string>
+    <string name="unique_auto_number">Unique Auto Number</string>
+    <string name="meter_company">Mechanical Taxi Meter Counter</string>
+    <string name="meter_maker">Super Meter</string>
 </resources>

@@ -13,17 +13,37 @@
 
     <TextView
         android:id="@+id/txt_driver_number"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_below="@id/txt_driver_name"
         android:layout_marginLeft="16dp"
         android:text="Number : 989812345" />
 
     <TextView
-        android:id="@+id/txt_vehicle_number"
-        android:layout_width="match_parent"
+        android:id="@+id/txt_unique_auto_number"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/txt_driver_name"
+        android:layout_marginRight="16dp"
+        android:text="Unique Number : 000000" />
+
+    <TextView
+        android:id="@+id/txt_vehicle_number"
+        android:layout_width="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_height="wrap_content"
         android:layout_below="@id/txt_driver_number"
+        android:layout_marginLeft="16dp"
         android:text="Auto Number : GJ 06 KG1234" />
+
+    <TextView
+        android:id="@+id/txt_licence_number"
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_driver_number"
+        android:layout_marginRight="16dp"
+        android:text="Licence Number : GJ06000000" />
 </RelativeLayout>

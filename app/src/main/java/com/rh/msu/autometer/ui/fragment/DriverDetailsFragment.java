@@ -32,6 +32,8 @@ public class DriverDetailsFragment extends Fragment {
         ((TextView) view.findViewById(R.id.txt_driver_name)).setText("Name : " + preferenceManager.getDriverName());
         ((TextView) view.findViewById(R.id.txt_driver_number)).setText("Contact Number : " + preferenceManager.getDriverMobileNumber());
         ((TextView) view.findViewById(R.id.txt_vehicle_number)).setText("Vehicle Number : " + preferenceManager.getVehicleNumber());
+        ((TextView) view.findViewById(R.id.txt_unique_auto_number)).setText("Unique Auto Number : " + preferenceManager.getUniqueAutoNumber());
+        ((TextView) view.findViewById(R.id.txt_licence_number)).setText("Licence Number : " + preferenceManager.getLicenceNumber());
 
         return view;
     }

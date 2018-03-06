@@ -19,6 +19,7 @@ public class AddDriverDetailsActivity extends AppCompatActivity implements View.
     EditText mEdTxtVehicleNumber;
     EditText mEdTxtLicenceNumber;
     EditText mEdTxtDiverMobileNumber;
+    EditText mEdTxtUniqueAutoNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class AddDriverDetailsActivity extends AppCompatActivity implements View.
         mEdTxtDiverMobileNumber = (EditText) findViewById(R.id.edtxt_driver_number);
         mEdTxtLicenceNumber = (EditText) findViewById(R.id.edtxt_licence_number);
         mEdTxtVehicleNumber = (EditText) findViewById(R.id.edtxt_vehicle_number);
+        mEdTxtUniqueAutoNumber = (EditText) findViewById(R.id.edtxt_auto_unique_number);
     }
 
 
@@ -48,6 +50,7 @@ public class AddDriverDetailsActivity extends AppCompatActivity implements View.
                 preferenceManager.putDriverName(mEdTxtDriverName.getText().toString().trim());
                 preferenceManager.putLicenceNumber(mEdTxtLicenceNumber.getText().toString().trim());
                 preferenceManager.putVehicleNumber(mEdTxtVehicleNumber.getText().toString().trim());
+                preferenceManager.putUniqueAutoNumber(mEdTxtUniqueAutoNumber.getText().toString().trim());
 
                 Intent intent = new Intent(AddDriverDetailsActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -63,6 +66,7 @@ public class AddDriverDetailsActivity extends AppCompatActivity implements View.
                 || TextUtils.isEmpty(mEdTxtDriverName.getText().toString())
                 || TextUtils.isEmpty(mEdTxtDiverMobileNumber.getText().toString())
                 || TextUtils.isEmpty(mEdTxtLicenceNumber.getText().toString())
+                || TextUtils.isEmpty(mEdTxtUniqueAutoNumber.getText().toString())
                 || TextUtils.isEmpty(mEdTxtVehicleNumber.getText().toString()));
     }
 }

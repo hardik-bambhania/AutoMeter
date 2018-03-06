@@ -18,47 +18,101 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/edtxt_owner_name"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayout_owner_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:hint="@string/owner_name" />
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/edtxt_driver_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/edtxt_owner_name"
-                android:layout_margin="4dp"
-                android:hint="@string/diver_name" />
+                <EditText
+                    android:id="@+id/edtxt_owner_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:maxLines="1"
+                    android:imeOptions="flagNoExtractUi"
+                    android:hint="@string/owner_name" />
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/edtxt_vehicle_number"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayout_driver_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/edtxt_driver_name"
-                android:layout_margin="4dp"
-                android:textAllCaps="true"
-                android:hint="@string/vehicle_number" />
+                android:layout_below="@id/inputLayout_owner_name">
 
-            <EditText
-                android:id="@+id/edtxt_driver_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/edtxt_vehicle_number"
-                android:layout_margin="4dp"
-                android:inputType="phone"
-                android:hint="@string/mobile_number" />
+                <EditText
+                    android:id="@+id/edtxt_driver_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:maxLines="1"
+                    android:imeOptions="flagNoExtractUi"
+                    android:hint="@string/diver_name" />
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/edtxt_licence_number"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayout_vehicle_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/edtxt_driver_number"
-                android:layout_margin="4dp"
-                android:textAllCaps="true"
-                android:hint="@string/licence_numner" />
+                android:layout_below="@id/inputLayout_driver_name">
+
+                <EditText
+                    android:id="@+id/edtxt_vehicle_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:maxLines="1"
+                    android:imeOptions="flagNoExtractUi"
+                    android:hint="@string/vehicle_number" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayout_driver_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inputLayout_vehicle_number">
+
+                <EditText
+                    android:id="@+id/edtxt_driver_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:imeOptions="flagNoExtractUi"
+                    android:maxLines="1"
+                    android:hint="@string/mobile_number"
+                    android:inputType="phone" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayout_licence_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inputLayout_driver_number">
+
+                <EditText
+                    android:id="@+id/edtxt_licence_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:maxLines="1"
+                    android:imeOptions="flagNoExtractUi"
+                    android:hint="@string/licence_numner" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputLayout_auto_unique_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inputLayout_licence_number">
+
+                <EditText
+                    android:id="@+id/edtxt_auto_unique_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="flagNoExtractUi"
+                    android:layout_margin="4dp"
+                    android:maxLines="1"
+                    android:hint="@string/unique_auto_number" />
+            </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
     </ScrollView>
 

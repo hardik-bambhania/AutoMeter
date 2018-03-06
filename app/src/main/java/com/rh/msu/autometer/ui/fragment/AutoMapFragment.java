@@ -28,6 +28,7 @@ import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -194,6 +195,8 @@ public class AutoMapFragment extends Fragment {
             Log.d("Location", "Location : " + latLng.toString());
             Toast.makeText(getActivity(), "Location : " + latLng.toString(), Toast.LENGTH_LONG).show();
 
+            CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(mCurrentLetLong, 16);
+            mMap.animateCamera(yourLocation);
 
             mCurrentLetLong = latLng;
 
@@ -236,6 +239,8 @@ public class AutoMapFragment extends Fragment {
             mMap.addMarker(new MarkerOptions().position(mStartLetLong)
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
         }
+
+
     }
 
     @Subscribe
@@ -251,6 +256,14 @@ public class AutoMapFragment extends Fragment {
                 Toast.makeText(getActivity().getApplicationContext(), "Stop", Toast.LENGTH_LONG).show();
                 mMap.addMarker(new MarkerOptions().position(mCurrentLetLong)
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
+                LatLngBounds.Builder builder = new LatLngBounds.Builder();
+                builder.include(mStartLetLong);
+                builder.include(mCurrentLetLong);
+                LatLngBounds bounds = builder.build();
+                int padding = 0; // offset from edges of the map in pixels
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, padding);
+                mMap.animateCamera(cameraUpdate);
                 break;
             default:
                 break;
