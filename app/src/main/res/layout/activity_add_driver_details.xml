@@ -28,6 +28,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
+                    android:maxLines="1"
+                    android:imeOptions="flagNoExtractUi"
                     android:hint="@string/owner_name" />
             </android.support.design.widget.TextInputLayout>
 
@@ -42,6 +44,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
+                    android:maxLines="1"
+                    android:imeOptions="flagNoExtractUi"
                     android:hint="@string/diver_name" />
             </android.support.design.widget.TextInputLayout>
 
@@ -56,8 +60,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
-                    android:hint="@string/vehicle_number"
-                    android:textAllCaps="true" />
+                    android:maxLines="1"
+                    android:imeOptions="flagNoExtractUi"
+                    android:hint="@string/vehicle_number" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -71,6 +76,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
+                    android:imeOptions="flagNoExtractUi"
+                    android:maxLines="1"
                     android:hint="@string/mobile_number"
                     android:inputType="phone" />
             </android.support.design.widget.TextInputLayout>
@@ -86,8 +93,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
-                    android:hint="@string/licence_numner"
-                    android:textAllCaps="true" />
+                    android:maxLines="1"
+                    android:imeOptions="flagNoExtractUi"
+                    android:hint="@string/licence_numner" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -100,9 +108,10 @@
                     android:id="@+id/edtxt_auto_unique_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:imeOptions="flagNoExtractUi"
                     android:layout_margin="4dp"
-                    android:hint="@string/unique_auto_number"
-                    android:textAllCaps="true" />
+                    android:maxLines="1"
+                    android:hint="@string/unique_auto_number" />
             </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
     </ScrollView>

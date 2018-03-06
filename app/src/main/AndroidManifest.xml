@@ -39,6 +39,8 @@
 
         <activity
             android:name=".ui.activity.AddDriverDetailsActivity"
+            android:imeOptions="flagNoExtractUi"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="landscape" />
     </application>
 
