@@ -6,7 +6,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -177,7 +176,7 @@ public class AutoMapFragment extends Fragment {
     private void calculateDistance(LatLng currentLatLong) {
         //Calculating the distance in meters
 
-        if (currentLatLong != null && mStartLetLong != null) {
+        if (currentLatLong != null && mLastKnownLetLong != null) {
             Double distance = SphericalUtil.computeDistanceBetween(mLastKnownLetLong, currentLatLong);
             mDistance = mDistance + distance;
             TripApplication.getInstance().getEventBus().post(mDistance);
@@ -194,9 +193,6 @@ public class AutoMapFragment extends Fragment {
             LatLng latLng = new LatLng(latitude, longitude); //you already have this
             Log.d("Location", "Location : " + latLng.toString());
             Toast.makeText(getActivity(), "Location : " + latLng.toString(), Toast.LENGTH_LONG).show();
-
-            CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(mCurrentLetLong, 16);
-            mMap.animateCamera(yourLocation);
 
             mCurrentLetLong = latLng;
 
@@ -226,6 +222,9 @@ public class AutoMapFragment extends Fragment {
     private void redrawLine() {
 
         mMap.clear();  //clears all Markers and Polylines
+
+        CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(mCurrentLetLong, 16);
+        mMap.animateCamera(yourLocation);
 
         PolylineOptions options = new PolylineOptions().width(5).color(Color.BLUE).geodesic(true);
         for (int i = 0; i < mPoints.size(); i++) {
@@ -261,7 +260,7 @@ public class AutoMapFragment extends Fragment {
                 builder.include(mStartLetLong);
                 builder.include(mCurrentLetLong);
                 LatLngBounds bounds = builder.build();
-                int padding = 0; // offset from edges of the map in pixels
+                int padding = 128; // offset from edges of the map in pixels
                 CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, padding);
                 mMap.animateCamera(cameraUpdate);
                 break;
@@ -287,7 +286,8 @@ public class AutoMapFragment extends Fragment {
         @SuppressWarnings("MissingPermission")
         @Override
         protected Void doInBackground(Void... params) {
-            Criteria criteria = new Criteria();
+           /* Criteria criteria = new Criteria();
+            criteria.setAccuracy(Criteria.ACCURACY_HIGH);
             String provider = mLocationManager.getBestProvider(criteria, true);
             Location location = mLocationManager.getLastKnownLocation(provider);
 
@@ -298,13 +298,14 @@ public class AutoMapFragment extends Fragment {
                 mStartLetLong = new LatLng(latitude, longitude);
                 mLastKnownLetLong = new LatLng(latitude, longitude);
                 return null;
-            }
+            }*/
 
             while (mCurrentLetLong == null) {
 
             }
 
             mStartLetLong = mCurrentLetLong;
+            mLastKnownLetLong = mCurrentLetLong;
             return null;
         }
 

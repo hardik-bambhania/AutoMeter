@@ -61,6 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:maxLines="1"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                     android:imeOptions="flagNoExtractUi"
                     android:hint="@string/vehicle_number" />
             </android.support.design.widget.TextInputLayout>
@@ -94,6 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:maxLines="1"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                     android:imeOptions="flagNoExtractUi"
                     android:hint="@string/licence_numner" />
             </android.support.design.widget.TextInputLayout>
@@ -111,6 +113,7 @@
                     android:imeOptions="flagNoExtractUi"
                     android:layout_margin="4dp"
                     android:maxLines="1"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                     android:hint="@string/unique_auto_number" />
             </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
